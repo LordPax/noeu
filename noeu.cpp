@@ -11,14 +11,14 @@ Noeu::Noeu(int nbEntree, float *entree, float *poid){
 	this->poid = poid;
 }
 void Noeu::setEntree(float *entree){
-	float *e = new float[nbEntree];
+	float *e = new float[this->nbEntree];
 	for (int i = 0; i < this->nbEntree; i++) {
 		e[i] = entree[i];
 	}
 	this->entree = e;
 }
 void Noeu::setPoid(float *poid){
-	float *p = new float[nbEntree];
+	float *p = new float[this->nbEntree];
 	for (int i = 0; i < this->nbEntree; i++) {
 		p[i] = poid[i];
 	}
@@ -28,7 +28,7 @@ void Noeu::setNbEntree(int nbEntree){
 	this->nbEntree = nbEntree;
 }
 void Noeu::setDelta(float delta){
-	this->delta;
+	this->delta = delta;
 }
 float *Noeu::getEntree(){
 	return this->entree;
@@ -46,9 +46,9 @@ float Noeu::getDelta(){
 	return this->delta;
 }
 void Noeu::calcule(){
-	float etape = 0;
+	float som = 0;
 	for(int i = 0; i < this->nbEntree; i++)
-		etape += this->entree[i] * this->poid[i];
-	this->sortie = etape;
+		som += this->entree[i] * this->poid[i];
+	this->sortie = som;
 }
 

@@ -5,6 +5,7 @@ int main(int argc, char **argv){
 	int nbEntree = 2; // nombre d'entree par noeu
 	int l = nbEntree, c = 2; // l x c noeu
 	int nb = 0;
+	float som = 0;
 
 	float entree[l][nbEntree] = { // matrice 2D (entree seulement pour la 1ere couche de noeu)
 		{1.0, 2.1}, 
@@ -56,7 +57,21 @@ int main(int argc, char **argv){
 				e[i] = r[i][j].getSortie(); // sauvegarde les sorties de la couche courante
 
 			for(int i = 0; i < l; i++)
-				r[i][j+1].setEntree(e); // et les associe a la couche c+1 (couche suivante)
+				r[i][j+1].setEntree(e); // et les associe a la couche j+1 (couche suivante)
+		}
+	}
+
+	for(int j = c-1; j >= 0; j--){
+		for(int i = 0; i < l; i++){
+			if(j == c-1){
+				r[i][j].setDelta(1 - r[i][j].getSortie()); // calcule du delta de la derniere couche 
+			}
+			else{
+				for(int k = 0; k < nbEntree; k++)
+					som += r[i][j+1].getPoid()[k]; // somme des poid a la couche j+1
+
+				r[i][j].setDelta(r[i][j].getSortie() * (1 - r[i][j].getSortie()) * som * r[i][j+1].getDelta()); // calcule du delta pour les autres couches (parcoure décroissant)
+			}
 		}
 	}
 
@@ -70,6 +85,7 @@ int main(int argc, char **argv){
 			for (int k = 0; k < r[i][j].getNbEntree(); k++)
 				cout << "poid     " << k << " : " << r[i][j].getPoid()[k] << endl;
 			cout << "sortie     : " << r[i][j].getSortie() << endl;
+			cout << "delta      : " << r[i][j].getDelta() << endl;
 			cout << endl << "=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-" << endl << endl;
 		}
 	}
