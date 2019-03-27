@@ -3,8 +3,7 @@
 
 int main(int argc, char **argv){
 	int nbEntree = 2; // nombre d'entree par noeu
-	int l = nbEntree, c = 2; // l x c noeu
-	int nb = 0;
+	int l = nbEntree, c = 3; // l x c noeu
 	float som = 0;
 
 	float entree[l][nbEntree] = { // matrice 2D (entree seulement pour la 1ere couche de noeu)
@@ -14,10 +13,10 @@ int main(int argc, char **argv){
 
 	float poid[l][c][nbEntree] = { // matrice 3D (poid pour chaque noeu)
 		{
-			{3.2, 2.1}, {7.4, 0.1}
+			{3.2, 2.1}, {7.4, 0.1}, {9.3, 4.7}
 		},
 		{
-			{5.3, 3.14}, {2, 12.01}
+			{5.3, 3.14}, {2, 12.01}, {6.66, 3.33}
 		}
 	};
 
