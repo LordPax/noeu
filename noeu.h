@@ -5,32 +5,44 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <math.h>
 
 using namespace std;
+
+enum func {
+	RELU,
+	SIG,
+	TANH
+};
+
+double ReLu(double x);
+double sig(double x);
+double Tanh(double x);
 
 class Noeu{
 	private :
 		int nbEntree;
-		float *entree;
-		float *poid;
-		float sortie;
-		float delta;
+		double *entree;
+		double *poid;
+		double sortie;
+		double delta;
 
 	public :
 		Noeu();
 		Noeu(int nbEntree);
-		Noeu(int nbEntree, float *entree, float *poid);
-		void setEntree(float *entree);
-		void setPoid(float *poid);
+		Noeu(int nbEntree, double *entree, double *poid);
+		void setEntree(double *entree);
+		void setPoid(double *poid);
 		void setNbEntree(int nbEntree);
-		void setDelta(float delta);
-		float getDelta();
-		float *getEntree();
-		float getSortie();
-		float *getPoid();
+		void setDelta(double delta);
+		double getDelta();
+		double *getEntree();
+		double getSortie();
+		double *getPoid();
 		int getNbEntree();
-		void calcule();
-
+		void calcule(func f);
+		void apprend(double x);
+		void affiche(int l, int c, int i, int j);
 };
 
 #endif

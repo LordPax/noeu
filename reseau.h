@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -18,9 +19,9 @@ class Reseau{
 		Reseau(int l, int c);
 		void setLigne(int l);
 		void setColonne(int c);
-		void setReseau(int nbEntree, float *entree, float *poid);
+		void setReseau(int nbEntree, double **entree, double ***poid);
 		void genReseau();
-		void setNoeu(int l, int c, int nbEntree, float *entree, float *poid);
+		void setNoeu(int l, int c, int nbEntree, double *entrees, double *poid);
 		int getLigne();
 		int getColonne();
 		void calcule();
@@ -28,6 +29,7 @@ class Reseau{
 		Noeu getNoeu(int l, int c);
 		void retroPropag();
 		void retroPropagS();
+		void affiche();
 };
 
 #endif

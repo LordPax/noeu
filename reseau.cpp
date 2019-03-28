@@ -18,12 +18,30 @@ void Reseau::genReseau(){
 
 	this->reseau = r;
 }
-void Reseau::setReseau(int nbEntree, float *entree, float *poid){
-	for(int i = 0; i < this->ligne; i++)
-		for(int j = 0; j < this->colonne; j++)
-			this->setNoeu(i, j, nbEntree, entree, poid);
+void Reseau::setReseau(int nbEntree, double **entree, double ***poid){
+	//double *e = new double[nbEntree], *p = new double[nbEntree]; // tab temporaire entree et poid
+
+	// for(int i = 0; i < this->ligne; i++){ // initialisation des entrees et poids de chaque noeu
+	// 	for(int j = 0; j < this->colonne; j++){
+	// 		if(j == 0){ // seulement si on est dans la 1ere couche
+	// 			for(int k = 0; k < nbEntree; k++)
+	// 				e[k] = entree[i][k]; // init les entrees de la 1ere couche
+	// 		}
+	// 		else{
+	// 			for(int k = 0; k < nbEntree; k++)
+	// 				e[k] = 0; // init les autre couche à 0
+	// 		}
+
+	// 		for(int k = 0; k < nbEntree; k++) 
+	// 			p[k] = poid[i][j][k]; // init les poids de chaque noeu
+
+	// 		this->reseau[i][j].setNbEntree(nbEntree); 
+	// 		this->reseau[i][j].setEntree(e);
+	// 		this->reseau[i][j].setPoid(p);
+	// 	}
+	// }
 }
-void Reseau::setNoeu(int l, int c, int nbEntree, float *entree, float *poid){
+void Reseau::setNoeu(int l, int c, int nbEntree, double *entree, double *poid){
 	this->reseau[l][c].setNbEntree(nbEntree);
 	this->reseau[l][c].setEntree(entree);
 	this->reseau[l][c].setPoid(poid);
@@ -45,4 +63,12 @@ void Reseau::retroPropag(){
 }
 void Reseau::retroPropagS(){
 	
+}
+void Reseau::affiche(){
+	int l = this->ligne, c = this->colonne;
+	for(int i = 0; i < l; i++){
+		for(int j = 0; j < c; j++){
+			this->reseau[i][j].affiche(l, c, i, j); // affiche les données d'un noeu
+		}
+	}
 }

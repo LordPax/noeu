@@ -3,15 +3,17 @@
 
 int main(int argc, char **argv){
 	int nbEntree = 2; // nombre d'entree par noeu
-	int l = nbEntree, c = 3; // l x c noeu
-	float som = 0;
+	int l = nbEntree, c = 3; // l * c noeu
+	double som = 0;
+	double apprend = 2;
+	string type;
 
-	float entree[l][nbEntree] = { // matrice 2D (entree seulement pour la 1ere couche de noeu)
-		{1.0, 2.1}, 
-		{3.3, 1.1}
+	double entree[l][nbEntree] = { // matrice 2D (entree seulement pour la 1ere couche de noeu)
+		{1.0, -2.1}, 
+		{-3.3, 1.1}
 	};
 
-	float poid[l][c][nbEntree] = { // matrice 3D (poid pour chaque noeu)
+	double poid[l][c][nbEntree] = { // matrice 3D (poid pour chaque noeu)
 		{
 			{3.2, 2.1}, {7.4, 0.1}, {9.3, 4.7}
 		},
@@ -20,7 +22,8 @@ int main(int argc, char **argv){
 		}
 	};
 
-	float *e = new float[nbEntree], *p = new float[nbEntree]; // tab temporaire entree et poid
+	/*
+	double *e = new double[nbEntree], *p = new double[nbEntree]; // tab temporaire entree et poid
 
 	Noeu *r[l]; // matrice 2D de noeu
 
@@ -49,7 +52,7 @@ int main(int argc, char **argv){
 
 	for(int j = 0; j < c; j++){
 		for(int i = 0; i < l; i++)
-			r[i][j].calcule(); // calcule de la couche courante (calcule couche par couche et non linge par ligne)
+			r[i][j].calcule(TANH); // calcule de la couche courante (calcule couche par couche et non linge par ligne)
 
 		if(j < c){
 			for(int i = 0; i < nbEntree; i++)
@@ -74,20 +77,23 @@ int main(int argc, char **argv){
 		}
 	}
 
-	for(int i = 0; i < l; i++){ // test
+	for(int i = 0; i < l; i++){
 		for(int j = 0; j < c; j++){
-			cout << "l          : " << i << endl;
-			cout << "c          : " << j << endl;
-			cout << "nb entree  : " << r[i][j].getNbEntree() << endl;
-			for (int k = 0; k < r[i][j].getNbEntree(); k++)
-				cout << "entree   " << k << " : " << r[i][j].getEntree()[k] << endl;
-			for (int k = 0; k < r[i][j].getNbEntree(); k++)
-				cout << "poid     " << k << " : " << r[i][j].getPoid()[k] << endl;
-			cout << "sortie     : " << r[i][j].getSortie() << endl;
-			cout << "delta      : " << r[i][j].getDelta() << endl;
-			cout << endl << "=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-" << endl << endl;
+			r[i][j].affiche(l, c, i, j); // affiche les données d'un noeu
 		}
 	}
+
+	for(int i = 0; i < l; i++){
+		for(int j = 0; j < c; j++){
+			r[i][j].apprend(apprend); // modifie les pois d'un noeu en fonction de la variable apprend
+		}
+	}
+
+	for(int i = 0; i < l; i++){
+		for(int j = 0; j < c; j++){
+			r[i][j].affiche(l, c, i, j); // affiche les données d'un noeu
+		}
+	}*/
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -141,6 +147,14 @@ int main(int argc, char **argv){
 	// cout << r.getNoeu(0, 0).getEntree()[0] << endl;
 	// cout << r.getNoeu(0, 0).getPoid()[0] << endl;
 	// cout << r.getReseau()[0][0].getNbEntree() << endl;
+
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+	Reseau r(l, c);
+	r.genReseau();
+	r.setReseau(nbEntree, entree, poid);
+	r.affiche();
+
 
 	return 0;
 }
