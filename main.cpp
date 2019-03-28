@@ -4,28 +4,42 @@
 int main(int argc, char **argv){
 	int nbEntree = 2; // nombre d'entree par noeu
 	int l = nbEntree, c = 3; // l * c noeu
-	double som = 0;
-	double apprend = 2;
+	float som = 0;
+	float apprend = 2;
 	string type;
 
-	double entree[l][nbEntree] = { // matrice 2D (entree seulement pour la 1ere couche de noeu)
-		{1.0, -2.1}, 
-		{-3.3, 1.1}
+	// float **entree = new float*[l], ***poid = new float**[l];
+
+	// float **entree, ***poid;
+
+	// for(int i = 0; i < l; i++)
+	// 	entree[i] = new float[c];
+
+	// for(int i = 0; i < l; i++){
+	// 	poid[i] = new float*[c];
+	// 	for(int j = 0; j < c; j++){
+	// 		poid[i][j] = new float[nbEntree];
+	// 	}
+	// }
+
+
+	float entree[l][nbEntree] = { // matrice 2D (entree seulement pour la 1ere couche de noeu)
+		{1.0, -2.1}, // 1ere ligne
+		{-3.3, 1.1}  // 2e ligne
 	};
 
-	double poid[l][c][nbEntree] = { // matrice 3D (poid pour chaque noeu)
+	float poid[l][c][nbEntree] = { // matrice 3D (poid pour chaque noeu)
 		{
-			{3.2, 2.1}, {7.4, 0.1}, {9.3, 4.7}
+			{3.2, 2.1}, {7.4, 0.1}, {9.3, 4.7}    // 1ere ligne
 		},
 		{
-			{5.3, 3.14}, {2, 12.01}, {6.66, 3.33}
+			{5.3, 3.14}, {2, 12.01}, {6.66, 3.33} // 2e ligne
 		}
 	};
 
-	/*
-	double *e = new double[nbEntree], *p = new double[nbEntree]; // tab temporaire entree et poid
+	float *e = new float[nbEntree], *p = new float[nbEntree]; // tab temporaire entree et poid
 
-	Noeu *r[l]; // matrice 2D de noeu
+	Noeu **r = new Noeu*[l];
 
 	for(int i = 0; i < l; i++)
 		r[i] = new Noeu[c];
@@ -89,11 +103,13 @@ int main(int argc, char **argv){
 		}
 	}
 
+	cout << "+-+-+-+-+-+-+-+-+-+-+--++-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-+-+-+-+" << endl;
+
 	for(int i = 0; i < l; i++){
 		for(int j = 0; j < c; j++){
 			r[i][j].affiche(l, c, i, j); // affiche les données d'un noeu
 		}
-	}*/
+	}
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -150,10 +166,10 @@ int main(int argc, char **argv){
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-	Reseau r(l, c);
-	r.genReseau();
-	r.setReseau(nbEntree, entree, poid);
-	r.affiche();
+	// Reseau r(l, c);
+	// r.genReseau();
+	// r.setReseau(nbEntree, entree, poid);
+	// r.affiche();
 
 
 	return 0;

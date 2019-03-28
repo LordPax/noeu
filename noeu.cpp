@@ -1,15 +1,15 @@
 #include "noeu.h"
 #include "reseau.h"
 
-double ReLu(double x){
+float ReLu(float x){
 	if(x < 0)
 		x = 0;
 	return x;
 }
-double sig(double x){
+float sig(float x){
 	return 1 / (1 + exp(-x));
 }
-double Tanh(double x){
+float Tanh(float x){
 	return 2 / (1 + exp(-2 * x)) - 1;
 }
 
@@ -17,20 +17,20 @@ Noeu::Noeu(){}
 Noeu::Noeu(int nbEntree){
 	this->nbEntree = nbEntree;
 }
-Noeu::Noeu(int nbEntree, double *entree, double *poid){
+Noeu::Noeu(int nbEntree, float *entree, float *poid){
 	this->setEntree(entree);
 	this->setPoid(poid);
 	this->poid = poid;
 }
-void Noeu::setEntree(double *entree){
-	double *e = new double[this->nbEntree];
+void Noeu::setEntree(float *entree){
+	float *e = new float[this->nbEntree];
 	for (int i = 0; i < this->nbEntree; i++) {
 		e[i] = entree[i];
 	}
 	this->entree = e;
 }
-void Noeu::setPoid(double *poid){
-	double *p = new double[this->nbEntree];
+void Noeu::setPoid(float *poid){
+	float *p = new float[this->nbEntree];
 	for (int i = 0; i < this->nbEntree; i++) {
 		p[i] = poid[i];
 	}
@@ -39,26 +39,26 @@ void Noeu::setPoid(double *poid){
 void Noeu::setNbEntree(int nbEntree){
 	this->nbEntree = nbEntree;
 }
-void Noeu::setDelta(double delta){
+void Noeu::setDelta(float delta){
 	this->delta = delta;
 }
-double *Noeu::getEntree(){
+float *Noeu::getEntree(){
 	return this->entree;
 }
-double *Noeu::getPoid(){
+float *Noeu::getPoid(){
 	return this->poid;
 }
-double Noeu::getSortie(){
+float Noeu::getSortie(){
 	return this->sortie;
 }
 int Noeu::getNbEntree(){
 	return this->nbEntree;
 }
-double Noeu::getDelta(){
+float Noeu::getDelta(){
 	return this->delta;
 }
 void Noeu::calcule(func f){
-	double som = 0;
+	float som = 0;
 
 	for(int i = 0; i < this->nbEntree; i++)
 		som += this->entree[i] * this->poid[i];
@@ -77,7 +77,7 @@ void Noeu::calcule(func f){
 
 	this->sortie = som;
 }
-void Noeu::apprend(double x){
+void Noeu::apprend(float x){
 	for(int i = 0; i < this->nbEntree; i++)
 		this->poid[i] = this->poid[i] + x * this->entree[i] * this->delta;
 }

@@ -19,9 +19,9 @@ class Reseau{
 		Reseau(int l, int c);
 		void setLigne(int l);
 		void setColonne(int c);
-		void setReseau(int nbEntree, double **entree, double ***poid);
+		void setReseau(int nbEntree, float **entree, float ***poid);
 		void genReseau();
-		void setNoeu(int l, int c, int nbEntree, double *entrees, double *poid);
+		void setNoeu(int l, int c, int nbEntree, float *entrees, float *poid);
 		int getLigne();
 		int getColonne();
 		void calcule();

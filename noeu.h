@@ -9,39 +9,39 @@
 
 using namespace std;
 
-enum func {
+enum func{
 	RELU,
 	SIG,
 	TANH
 };
 
-double ReLu(double x);
-double sig(double x);
-double Tanh(double x);
+float ReLu(float x);
+float sig(float x);
+float Tanh(float x);
 
 class Noeu{
 	private :
 		int nbEntree;
-		double *entree;
-		double *poid;
-		double sortie;
-		double delta;
+		float *entree;
+		float *poid;
+		float sortie;
+		float delta;
 
 	public :
 		Noeu();
 		Noeu(int nbEntree);
-		Noeu(int nbEntree, double *entree, double *poid);
-		void setEntree(double *entree);
-		void setPoid(double *poid);
+		Noeu(int nbEntree, float *entree, float *poid);
+		void setEntree(float *entree);
+		void setPoid(float *poid);
 		void setNbEntree(int nbEntree);
-		void setDelta(double delta);
-		double getDelta();
-		double *getEntree();
-		double getSortie();
-		double *getPoid();
+		void setDelta(float delta);
+		float getDelta();
+		float *getEntree();
+		float getSortie();
+		float *getPoid();
 		int getNbEntree();
 		void calcule(func f);
-		void apprend(double x);
+		void apprend(float x);
 		void affiche(int l, int c, int i, int j);
 };
 

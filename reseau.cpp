@@ -12,14 +12,14 @@ void Reseau::setColonne(int c){
 	this->colonne = c;
 }
 void Reseau::genReseau(){
-	Noeu *r[this->ligne];
+	Noeu **r = new Noeu*[this->ligne];
 	for(int i = 0; i < this->ligne; i++)
 		r[i] = new Noeu[this->colonne];
 
 	this->reseau = r;
 }
-void Reseau::setReseau(int nbEntree, double **entree, double ***poid){
-	//double *e = new double[nbEntree], *p = new double[nbEntree]; // tab temporaire entree et poid
+void Reseau::setReseau(int nbEntree, float **entree, float ***poid){
+	//float *e = new float[nbEntree], *p = new float[nbEntree]; // tab temporaire entree et poid
 
 	// for(int i = 0; i < this->ligne; i++){ // initialisation des entrees et poids de chaque noeu
 	// 	for(int j = 0; j < this->colonne; j++){
@@ -41,7 +41,7 @@ void Reseau::setReseau(int nbEntree, double **entree, double ***poid){
 	// 	}
 	// }
 }
-void Reseau::setNoeu(int l, int c, int nbEntree, double *entree, double *poid){
+void Reseau::setNoeu(int l, int c, int nbEntree, float *entree, float *poid){
 	this->reseau[l][c].setNbEntree(nbEntree);
 	this->reseau[l][c].setEntree(entree);
 	this->reseau[l][c].setPoid(poid);
