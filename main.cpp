@@ -168,8 +168,8 @@ int main(int argc, char **argv){
 
 	Reseau r(l, c);
 	r.genReseau();
-	r.setReseau(nbEntree, entree, poid);
-	// r.affiche();
+	r.setReseau(nbEntree, &entree[0][0], &poid[0][0][0]);
+	r.affiche();
 
 
 	return 0;
