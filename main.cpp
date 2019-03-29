@@ -37,7 +37,7 @@ int main(int argc, char **argv){
 		}
 	};
 
-	float *e = new float[nbEntree], *p = new float[nbEntree]; // tab temporaire entree et poid
+	/*float *e = new float[nbEntree], *p = new float[nbEntree]; // tab temporaire entree et poid
 
 	Noeu **r = new Noeu*[l];
 
@@ -109,7 +109,7 @@ int main(int argc, char **argv){
 		for(int j = 0; j < c; j++){
 			r[i][j].affiche(l, c, i, j); // affiche les données d'un noeu
 		}
-	}
+	}*/
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -166,9 +166,9 @@ int main(int argc, char **argv){
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-	// Reseau r(l, c);
-	// r.genReseau();
-	// r.setReseau(nbEntree, entree, poid);
+	Reseau r(l, c);
+	r.genReseau();
+	r.setReseau(nbEntree, entree, poid);
 	// r.affiche();
 
 
