@@ -6,8 +6,11 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <time.h>
 
 using namespace std;
+
+float randFloat(float a, float b);
 
 class Reseau{
 	private :
@@ -19,12 +22,12 @@ class Reseau{
 		Reseau(int l, int c);
 		void setLigne(int l);
 		void setColonne(int c);
-		void setReseau(int nbEntree, float *entree, float *poid);
+		void setReseau(int nbEntree, float *entree, float poidsMax);
 		void genReseau();
 		void setNoeu(int l, int c, int nbEntree, float *entrees, float *poid);
 		int getLigne();
 		int getColonne();
-		void calcule();
+		void calcule(func f);
 		Noeu **getReseau();
 		Noeu getNoeu(int l, int c);
 		void retroPropag();
