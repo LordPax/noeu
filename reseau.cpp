@@ -91,20 +91,17 @@ void Reseau::retroPropagS(){
 }
 void Reseau::affiche(){
 	int l = this->ligne, c = this->colonne;
-	for(int i = 0; i < l; i++){
-		for(int j = 0; j < c; j++){
+	for(int i = 0; i < l; i++)
+		for(int j = 0; j < c; j++)
 			this->reseau[i][j].affiche(l, c, i, j); // affiche les données d'un noeu
-		}
-	}
 }
 void Reseau::calcule(func f){
 	float *e = new float[this->ligne];
 	//int *nbEntree = new int[this->ligne];
 	for(int j = 0; j < this->colonne; j++){
-		for(int i = 0; i < this->ligne; i++){
+		for(int i = 0; i < this->ligne; i++)
 			this->reseau[i][j].calcule(f); // calcule de la couche courante (calcule couche par couche et non linge par ligne)
 			//nbEntree[i] = this->reseau[i][j].getEntree();
-		}
 
 		if(j < this->colonne){
 			for(int i = 0; i < this->ligne; i++)
@@ -114,4 +111,9 @@ void Reseau::calcule(func f){
 				this->reseau[i][j+1].setEntree(e); // et les associe a la couche j+1 (couche suivante)
 		}
 	}
+}
+void Reseau::apprend(float apprend){
+	for(int i = 0; i < this->ligne; i++)
+		for(int j = 0; j < this->colonne; j++)
+			this->reseau[i][j].apprend(apprend); // modifie les pois d'un noeu en fonction de la variable apprend
 }

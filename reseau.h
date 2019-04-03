@@ -33,6 +33,7 @@ class Reseau{
 		void retroPropag();
 		void retroPropagS();
 		void affiche();
+		void apprend(float apprend);
 };
 
 #endif

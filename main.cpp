@@ -113,67 +113,22 @@ int main(int argc, char **argv){
 		}
 	}*/
 
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-	//Noeu n(nbEntree, entree, poid), n2(nbEntree, entree2, poid), n3(nbEntree), n4(nbEntree);
-
-	// n.calcule();
-	// n2.calcule();
-
-	// entree3[0] = n.getSortie();
-	// entree3[1] = n2.getSortie();
-
-	// n3.setEntree(entree3);
-	// n3.setPoid(poid);
-
-	// n4.setEntree(entree3);
-	// n4.setPoid(poid);
-
-	// n3.calcule();
-	// n4.calcule();
-	
-	// cout << "n resultat : " << n.getSortie() << endl;
-	// cout << "n2 resultat : " << n2.getSortie() << endl;
-	// cout << "n3 resultat : " << n3.getSortie() << endl;
-	// cout << "n4 resultat : " << n4.getSortie() << endl;
-
-	// n4.setDelta(1 - n4.getSortie());
-	// n3.setDelta(1 - n3.getSortie());
-	// n2.setDelta(n2.getSortie() * (1 - n2.getSortie()) * n3.getPoid()[1] * n3.getDelta());
-	// n.setDelta(n.getSortie() * (1 - n.getSortie()) * n3.getPoid()[0] * n3.getDelta());
-
-	// cout << "delta 4 resultat : " << n4.getDelta() << endl;
-	// cout << "delta 3 resultat : " << n3.getDelta() << endl;
-	// cout << "delta 2 resultat : " << n2.getDelta() << endl;
-	// cout << "delta 1 resultat : " << n.getDelta() << endl;
-
 //=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-
-
-	// Reseau r(l, c);
-	// r.genReseau();
-	// r.setReseau(nbEntree, entree, poid);
-	// r.setNoeu(0, 0, 2, entree, poid);
-	// r.setNoeu(0, 1, 2, entree, poid);
-	// r.calcule();
-
-	// r.getNoeu(0, 0).setNbEntree(2);
-	// r.getReseau()[0][0].setNbEntree(2);
-	// r.getNoeu(0, 0).setEntree(entree);
-	// r.getReseau()[0][0].setEntree(entree);
-
-	// r.setNoeu(0, 0, 2, entree, poid);
-	// cout << r.getNoeu(0, 0).getEntree()[0] << endl;
-	// cout << r.getNoeu(0, 0).getPoid()[0] << endl;
-	// cout << r.getReseau()[0][0].getNbEntree() << endl;
-
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 	Reseau r(l, c);
 	r.genReseau();
 	r.setReseau(nbEntree, &entree[0][0], poidsMax);
-	r.calcule(TANH);
+	r.calcule(RELU);
 	r.retroPropag();
 	r.affiche();
+	r.apprend(apprend);
+
+	cout << "=-=-=-=-==-=-=-=-=-= je suis une putin de séparation =-=-=-=-=-=-=-=-==-=-=-=-=-=-=-" << endl;
+
+	r.calcule(RELU);
+	r.retroPropag();
+	r.affiche();
+
 
 
 	return 0;
