@@ -86,9 +86,6 @@ void Reseau::retroPropag(){
 		}
 	}
 }
-void Reseau::retroPropagS(){
-	
-}
 void Reseau::affiche(){
 	int l = this->ligne, c = this->colonne;
 	for(int i = 0; i < l; i++)
@@ -116,4 +113,13 @@ void Reseau::apprend(float apprend){
 	for(int i = 0; i < this->ligne; i++)
 		for(int j = 0; j < this->colonne; j++)
 			this->reseau[i][j].apprend(apprend); // modifie les pois d'un noeu en fonction de la variable apprend
+}
+
+float *Reseau::getSortieR(){
+	float *sortie = new float[this->ligne];
+	
+	for(int i = 0; i < this->ligne; i++)
+		sortie[i] = this->reseau[i][this->colonne - 1].getSortie();
+		
+	return sortie;
 }
