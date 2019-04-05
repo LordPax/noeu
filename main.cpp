@@ -1,5 +1,4 @@
-#include "noeu.h"
-#include "reseau.h"
+#include "paxNoeud.h"
 
 int main(int argc, char **argv){
 	int l = 3, c = 3; // l * c noeu
