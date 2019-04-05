@@ -27,7 +27,7 @@ int main(int argc, char **argv){
 	Reseau r(l, c);
 	r.genReseau();
 	r.setReseau(nbEntree, &entree[0][0], poidsMax);
-	r.calcule(RELU);
+	r.calcule(TANH);
 	r.retroPropag();
 	r.affiche();
 	r.apprend(apprend);
