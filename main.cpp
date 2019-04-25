@@ -25,10 +25,19 @@ int main(int argc, char **argv){
 
 	Reseau r(l, c);
 	r.genReseau();
+
+	cout << endl << "!i!i!i!i!i!i test 1 !i!i!i!i!i!i!" << endl << endl;
 	r.setReseau(nbEntree, &entree[0][0], poidsMax);
+	r.affiche();
+
+	cout << endl << "!i!i!i!i!i!i test 2 !i!i!i!i!i!i!" << endl << endl;
 	r.calcule(TANH);
+	r.affiche();
+
+	cout << endl << "!i!i!i!i!i!i test 3 !i!i!i!i!i!i!" << endl << endl;
 	r.retroPropag();
 	r.affiche();
+
 	r.apprend(apprend);
 
 	cout << "=-=-=-=-==-=-=-=-=-= je suis une putin de séparation =-=-=-=-=-=-=-=-==-=-=-=-=-=-=-" << endl;
