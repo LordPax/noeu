@@ -1,4 +1,4 @@
 # Noeu test
 
-**_commande_ : g++ \*.cpp \*/\*.cpp -o noeud**
+_commande_ : g++ \*.cpp source/\*.cpp -o noeud
 
