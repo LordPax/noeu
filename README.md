@@ -1,7 +1,7 @@
 # Noeud test
 
 ## Description
-Petit projet visant comprendre le fonctionnement d'un réseau de neurone
+Petit projet visant à comprendre le fonctionnement d'un réseau de neurone
 
 ## Commande de compilation
 ```bash
