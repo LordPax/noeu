@@ -82,10 +82,12 @@ void Noeu::affiche(int l, int c, int i, int j){
 	cout << "l          : " << i << endl;
 	cout << "c          : " << j << endl;
 	cout << "nb entree  : " << this->getNbEntree() << endl;
+
 	for (int k = 0; k < this->getNbEntree(); k++)
 		cout << "entree   " << k << " : " << this->getEntree()[k] << endl;
 	for (int k = 0; k < this->getNbEntree(); k++)
 		cout << "poid     " << k << " : " << this->getPoid()[k] << endl;
+	
 	cout << "sortie     : " << this->getSortie() << endl;
 	cout << "delta      : " << this->getDelta() << endl;
 	cout << endl << "=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-" << endl << endl;

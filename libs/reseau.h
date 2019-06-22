@@ -8,6 +8,7 @@ class Reseau{
 		int ligne;
 		int colonne;
 		Noeu **reseau;
+		// vector<vector<Noeu>> reseau;
 
 	public :
 		Reseau(int l, int c);
@@ -20,6 +21,7 @@ class Reseau{
 		int getColonne();
 		void calcule(func f);
 		Noeu **getReseau();
+		// vector<Noeu> getReseau();
 		Noeu getNoeu(int l, int c);
 		void retroPropag();
 		void retroPropagS();
